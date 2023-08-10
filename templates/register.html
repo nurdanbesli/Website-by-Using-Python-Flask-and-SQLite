@@ -1,0 +1,63 @@
+{% extends "layout.html" %} 
+
+{% block body  %}
+
+<center>
+<div><br>
+   <img src="/static/logo.jpg" width="500" height="300"><br><br>
+</div>
+
+<div class="column is-4 is-offset-4">
+    <div class="box">
+        <form method="POST" action="/register">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category,message in messages %}
+                        <div class="alert alert-{{category}}"><b>{{message}}</b></div>
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="name" id="name" placeholder="Name" autofocus="" size = "50" maxlength="50" style="height: 40px;" required>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="surname" id="surname" placeholder="Surname" autofocus="" size = "50" maxlength="50" style="height: 40px;" required>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="email" name="email" id="email" placeholder="E-mail address" autofocus="" size = "50" maxlength="50" style="height: 40px;" required>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="phone" id="phone" placeholder="Phone number" autofocus="" size = "50" maxlength="50" style="height: 40px;" required>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="password" name="password" id="password" placeholder="Password" size = "50" maxlength="50" style="height: 40px;" required>
+                </div>
+            </div>
+			<br>
+                <p>
+                    Already have an account? <a href="{{url_for('login')}}">Log in!</a>
+
+                </p>
+            <br>
+	        <button class="button is-block is-info is-large is-fullwidth" style="background-color:#2ADB21"><b>REGISTER</b></button>
+        </form>
+    </div>
+</div>
+<br><br><br>
+</center>
+{% endblock %}
+

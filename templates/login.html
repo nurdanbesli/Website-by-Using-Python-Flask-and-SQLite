@@ -1,0 +1,37 @@
+{% extends "layout.html" %} 
+
+{% block body  %}
+
+<center>
+<div><br>
+   <img src="/static/logo.jpg" width="500" height="300"><br><br>
+</div>
+
+<div class="box">
+        <form method="POST" action="/login">
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category,message in messages %}
+                        <div class="alert alert-{{category}}"><b>{{message}}</b></div>
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
+
+            <div class="field">
+                        <input type="text" name="email" id="email" placeholder="Email" size = "50" maxlength="50" style="height: 40px;" required>
+                        <br>
+                        <input type="password" name="password" id="password" placeholder="Password" size = "50" maxlength="50" style="height: 40px;" required>
+                    </form>
+                <br><br>
+                <p>
+                    Don't have an account? <a href="{{url_for('register')}}">Register!</a>
+                </p>
+                <br>
+                <button class="button is-block is-info is-large is-fullwidth" style="background-color:#2ADB21"><b>LOGIN</b></button>
+           </div>
+        </form>
+</div>
+
+</center>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %} 
+
+{% block body %}
+        <br><br>
+        <center><h1>ORDERS</h1>  </center>
+
+        {% for product in products %}
+
+        <table cellpadding = "100">
+            <tbody>
+                <tr>
+                    <td width="30%"><img src="{{product.url}}"alt="deneme" height = "300">
+                    <td width="70%">
+                        <div class="article-metadata">
+                            <font size = "+1" color = "E0144C"><b> Order ID:   </b></font> <b> {{ product.order_id }} </b><br>
+                            <font size = "+1" color = "E0144C"><b> Product ID:         </b></font> <b> {{ product.product_id }} </b><br>
+                            <font size = "+1" color = "E0144C"><b> Product Price:      </b></font> <b> {{ product.price }} PLN</b><br>
+                            <font size = "+1" color = "E0144C"><b> Product Brand:      </b></font> <b> {{ product.brand }} </b><br>
+                            <font size = "+1" color = "E0144C"><b> Product Title:      </b></font> <b> {{ product.title }} </b><br>
+                            <font size = "+1" color = "E0144C"><b> Payment Method:     </b></font> <b> {{ product.payment_method  }} </b><br>
+                            <font size = "+1" color = "E0144C"><b> Delivery Address:   </b></font> <b> {{ product.address }} </b><br>
+                                                    
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    {% endfor %} 
+    
+{% endblock  %}

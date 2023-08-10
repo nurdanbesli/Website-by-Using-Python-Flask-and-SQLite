@@ -1,0 +1,34 @@
+{% extends "layout.html" %} 
+
+{% block body  %}
+
+<center>
+
+<div><br>
+    <img src="/static/logo.jpg" width="500" height="300"><br><br>
+ </div>
+
+<div>
+<h1> Your order was completed successfully!</h1>
+<br><br>
+
+<form>
+         <button type="submit" formaction="{{url_for('buyproduct')}}" style="background-color:#2ADB21"><b>BUY NEW PRODUCT</b></button>
+</form>
+<br>
+<form>
+         <button type="submit" formaction="{{url_for('order')}}" style="background-color:#2ADB21"><b>GO TO MY ORDERS PAGE</b></button>
+</form>
+<br>
+<form>
+         <button type="submit" formaction="{{url_for('home')}}" style="background-color:#2ADB21"><b>GO TO HOME PAGE</b></button>
+</form>
+
+
+</div>
+
+
+
+</center>
+{% endblock %}
+

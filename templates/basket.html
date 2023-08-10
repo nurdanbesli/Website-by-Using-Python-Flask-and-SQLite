@@ -1,0 +1,55 @@
+{% extends "layout.html" %} 
+
+{% block body  %}
+
+<center>
+
+<div><br>
+   <img src="/static/logo.jpg" width="500" height="300"><br><br>
+</div>
+
+<div class="column is-4 is-offset-4">
+    <div class="box">
+        <form method="POST" action="/basket">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category,message in messages %}
+                        <div class="alert alert-{{category}}"><b>{{message}}</b></div>
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
+                
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="numeric" name="product_id" id="product_id" placeholder="PRODUCT ID" autofocus="" size = "50" maxlength="50" style="height: 40px;" required>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="address" id="address" placeholder="DELIVERY ADDRESS" autofocus="" size = "50" maxlength="50" style="height: 40px;" required>
+                </div>
+            </div>
+<br>
+            <div class="field">
+                <div class="control">
+                <label for="payment_method" placeholder="PAYMENT METHOD" required><b>PAYMENT METHOD </b></label>
+                    <select id="payment_method" name="payment_method">
+                    <option value="Credit Card">Credit Card</option>
+                    <option value="Debit Card">Debit Card</option>
+                    <option value="Cash on Delivery">Cash on Delivery</option>
+                    </select>
+                </div>
+            </div>
+
+			<br>
+
+	        <button class="button is-block is-info is-large is-fullwidth" style="background-color:#2ADB21"><b>BUY PRODUCT</b></button>
+        </form>
+    </div>
+</div>
+ 
+
+</center>
+{% endblock %}
+
